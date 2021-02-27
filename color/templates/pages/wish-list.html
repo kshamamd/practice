@@ -1,0 +1,29 @@
+{% extends '../base.html' %}
+{% block title %}Color Cult | My Profile{% endblock title %}
+{% block content %}
+    {% load static %}
+    <section id="home-banner">
+        <div class="home-banner-slider">
+            <div class="home-img">
+                <img class="img-fluid" src="{{ get_home_banners.banner_one.url }}">
+            </div>
+            <div class="home-img">
+                <img class="img-fluid" src="{{ get_home_banners.banner_two.url }}">
+            </div>
+            <div class="home-img">
+                <img class="img-fluid" src="{{ get_home_banners.banner_three.url }}">
+            </div>
+            <div class="home-img">
+                <img class="img-fluid" src="{{ get_home_banners.banner_four.url }}">
+            </div>
+        </div>
+    </section>
+    <div class="container">
+      <h3>My Wish List</h3>
+        <div class="row">
+            <div class="col-md-12">
+                Items( {{ product_count_in_cart }} )
+            </div>
+        </div>
+    </div>
+{% endblock %}

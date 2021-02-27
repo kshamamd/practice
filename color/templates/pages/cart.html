@@ -1,0 +1,83 @@
+{% extends '../base.html' %}
+{% block title %}Color Cult | Shopping Cart{% endblock title %}
+{% block content %}
+<div class="container">
+    <h3>Shopping Cart</h3>
+    <div class="row">
+        <div class="col-md-7">
+            Items( {{ object.product_count_in_cart }} )
+        </div>
+         <div class="col-md-5 text-left">
+            Subtotal
+             <div>
+      <div class="content" style="margin-top: 200px;">
+          <div class="content-section" style=" width: 387px; border-color: #996BD1;">
+        <div class="card">
+          <div class="card-title" style="background: rgba(153, 107, 209, 0.07);width: 387px;height: 67px;">
+            <h5 id="1" style="margin-left: 15px; margin-top: 15px;">Order Summary<h5>
+           </div>
+        <div class="card-body ">
+         <div class="card-text">
+           <p style="text-align: left;">Cart Total <span id="cart-total" style="text-align: right;">$399</span></p>
+           <p class="text-muted" style="text-align: left;">GST<span id="gst">$399</span></p>
+           <p style="text-align: left;"> Total Amount<span id="amount">$399</span></p>
+           <hr>
+           <p style="text-align: left;">Shipping Charges<span id="shipping" style="">FREE</span></p>
+
+           <hr>
+           <p style="text-align: left;">Total Payable<span id="payable">$399</span></p>
+         </div>
+       </div>
+      </div>
+        <button class="btn btn-class" id="mybtn" style="width: 387px;height: 49px;left: 893px;margin-top: 20px;color: white;background: #996BD1;border: 1px solid rgba(153, 107, 209, 0.3);border-radius: 4px;">Continue</button>
+      </div>
+    </div>
+  </div>
+         </div>
+    </div>
+    <div class="row">
+        Pending
+        <div class="col-md-6">
+            <ul class="ul cart-ul">
+            {% for prod in product_object_list %}
+                {% for p in prod %}
+                    <li>
+                        <div class="li-inner">
+                            <div class="left-img">
+                                <img class="img-fluid" src="{{ p.product_image.url }}">
+                            </div>
+                            <div class="right-text">
+                                <p class="name">{{ p.product_name }}</p>
+                                <p class="category">{{ p.product_category.first | join:', ' }}</p>
+                                <div class="p-list">
+                                    <p>Color: {{ p.product_color.first | join:', ' }}</p>
+                                    <p>Size:</p>
+                                    <p>Quantity:</p>
+                                </div>
+                                <div class="r-total">
+                                    <span><a>Remove</a></span>
+                                    <span>Rs. {{ p.price }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                {%endfor%}
+            {%endfor%}
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="messages">
+    {%if messages %}
+        {%for message in messages%}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{message}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {%endfor%}
+    {%endif%}
+</div>
+{% endblock %}
+cookies madhun id retrive karav lagel list
